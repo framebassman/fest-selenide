@@ -13,18 +13,20 @@ public class ContentPaneReplace extends JFrame
 
     public ContentPaneReplace()
     {
-        super("Test ContentPane");
+        super("TestContentPane");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         // Создание панели с двумя кнопками
         JPanel contents = new JPanel();
         JLabel logLabel = new JLabel();
         JButton button = new JButton("Button");
+        button.setName("TestButton");
         button.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
                 logLabel.setText("Button was clicked");
+                logLabel.setName("LogLabel");
             }
         });
 
