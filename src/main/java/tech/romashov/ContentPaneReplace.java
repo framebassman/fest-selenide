@@ -38,5 +38,6 @@ public class ContentPaneReplace extends JFrame
         setSize(200, 100);
         // Открытие окна
         setVisible(true);
+        setAlwaysOnTop(true);
     }
 }
