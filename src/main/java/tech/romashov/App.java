@@ -3,12 +3,15 @@
  */
 package tech.romashov;
 
+import javax.swing.JFrame;
+
 public class App {
     public String getGreeting() {
         return "Hello world.";
     }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        JFrame.setDefaultLookAndFeelDecorated(true);
+        new ContentPaneReplace();
     }
 }
