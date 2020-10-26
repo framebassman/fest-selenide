@@ -13,9 +13,9 @@ public class ButtonTest {
     private Robot robot;
 
     @Before
-    public void buttonTestSetup() {
-        new AppLoader();
+    public void buttonTestSetup() throws Throwable {
         robot = BasicRobot.robotWithCurrentAwtHierarchy();
+        new AppLoader(robot);
     }
 
     @Test

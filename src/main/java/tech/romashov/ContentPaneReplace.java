@@ -14,6 +14,7 @@ public class ContentPaneReplace extends JFrame
     public ContentPaneReplace()
     {
         super("TestContentPane");
+        this.setName("TestContentPane");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         // Создание панели с двумя кнопками
