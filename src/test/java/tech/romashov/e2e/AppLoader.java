@@ -1,6 +1,5 @@
 package tech.romashov.e2e;
 
-import org.fest.swing.core.BasicRobot;
 import org.fest.swing.core.NameMatcher;
 import org.fest.swing.core.Robot;
 import tech.romashov.App;
