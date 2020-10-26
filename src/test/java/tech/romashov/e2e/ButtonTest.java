@@ -9,6 +9,9 @@ import org.junit.Test;
 
 import java.awt.Component;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.IsEqual.equalTo;
+
 public class ButtonTest {
     private Robot robot;
 
@@ -23,6 +26,6 @@ public class ButtonTest {
         Component button = robot.finder().find(new NameMatcher("TestButton"));
         robot.click(button);
         Component label = robot.finder().find(new NameMatcher("LogLabel"));
-        Assert.assertTrue(label.isVisible());
+        assertThat(label.isVisible(), equalTo(true));
     }
 }
