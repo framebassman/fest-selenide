@@ -1,4 +1,4 @@
-package tech.romashov.core;
+package tech.romashov.core.assertions;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;

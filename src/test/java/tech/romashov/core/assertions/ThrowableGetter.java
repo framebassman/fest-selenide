@@ -1,4 +1,4 @@
-package tech.romashov.core;
+package tech.romashov.core.assertions;
 
 /**
  * Интерфейс для получения некоторого значения.

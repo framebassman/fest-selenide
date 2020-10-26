@@ -3,7 +3,7 @@ package tech.romashov.e2e;
 import org.fest.swing.core.NameMatcher;
 import org.fest.swing.core.Robot;
 import tech.romashov.App;
-import tech.romashov.core.AssertWithTimeout;
+import tech.romashov.core.assertions.AssertWithTimeout;
 
 import javax.swing.SwingUtilities;
 

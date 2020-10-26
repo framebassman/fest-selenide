@@ -25,6 +25,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.easytesting:fest-swing:1.2.1'
     testImplementation 'org.hamcrest:hamcrest:2.2'
+    testImplementation 'com.codeborne:selenide:5.15.1'
 }
 
 application {
