@@ -1,33 +1,28 @@
 package tech.romashov.e2e;
 
-import org.fest.swing.finder.WindowFinder;
-import org.fest.swing.launcher.ApplicationLauncher;
-import org.junit.After;
+import org.fest.swing.core.BasicRobot;
+import org.fest.swing.core.NameMatcher;
+import org.fest.swing.core.Robot;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.fest.swing.fixture.FrameFixture;
-import org.fest.swing.testing.FestSwingTestCaseTemplate;
-import tech.romashov.App;
-import tech.romashov.ContentPaneReplace;
 
-public class ButtonTest extends FestSwingTestCaseTemplate {
-    private FrameFixture mFrame;
+import java.awt.Component;
+
+public class ButtonTest {
+    private Robot robot;
 
     @Before
     public void buttonTestSetup() {
-        setUpRobot();
-        ApplicationLauncher.application( App.class ).start();
-        mFrame = WindowFinder.findFrame( ContentPaneReplace.class ).using( robot() );
-    }
-
-    @After
-    public void tearDown(){
-        cleanUp();
+        new AppLoader();
+        robot = BasicRobot.robotWithCurrentAwtHierarchy();
     }
 
     @Test
     public void ClickOnButton() throws Exception {
-        mFrame.button( "TestButton" ).click();
-        mFrame.label("LogLabel").requireVisible();
+        Component button = robot.finder().find(new NameMatcher("TestButton"));
+        robot.click(button);
+        Component label = robot.finder().find(new NameMatcher("LogLabel"));
+        Assert.assertTrue(label.isVisible());
     }
 }
