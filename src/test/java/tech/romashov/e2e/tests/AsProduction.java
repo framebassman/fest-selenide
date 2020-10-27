@@ -30,7 +30,7 @@ public class AsProduction {
 
     @After
     public void tearDown() throws Exception {
-        System.out.println("start AsProduction.tearDown");
+        logger.info("start AsProduction.tearDown");
         loader.close();
     }
 
