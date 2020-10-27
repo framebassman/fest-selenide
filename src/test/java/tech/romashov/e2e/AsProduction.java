@@ -15,16 +15,12 @@ import static org.hamcrest.core.IsEqual.equalTo;
 
 public class AsProduction extends ButtonTest {
     private Robot robot;
-    private SelenideDriver selenide;
 
     @Override
     @Before
     public void setUp() throws Throwable {
         robot = BasicRobot.robotWithCurrentAwtHierarchy();
         new AppLoader(robot);
-        SelenideConfig configuration = new SelenideConfig();
-        configuration.browser(FestDriverProvider.class.getName());
-        selenide = new SelenideDriver(configuration);
     }
 
     @Override
