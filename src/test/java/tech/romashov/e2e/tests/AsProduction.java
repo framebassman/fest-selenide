@@ -5,6 +5,8 @@ import org.fest.swing.core.NameMatcher;
 import org.fest.swing.core.Robot;
 import org.junit.Before;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import tech.romashov.e2e.application.AppLoader;
 
 import java.awt.Component;
@@ -14,16 +16,19 @@ import static org.hamcrest.core.IsEqual.equalTo;
 
 public class AsProduction {
     private Robot robot;
+    private Logger logger = LoggerFactory.getLogger(ButtonTest.class);
 
 //    @Override
     @Before
     public void setUp() throws Throwable {
+        logger.info("start AsProduction.setUp");
         robot = BasicRobot.robotWithCurrentAwtHierarchy();
         new AppLoader(robot);
     }
 
     @Test
     public void clickOnButton_labelShouldBeDisplayed() throws Exception {
+        logger.info("start AsProduction.clickOnButton_labelShouldBeDisplayed");
         Component button = robot.finder().find(new NameMatcher("TestButton"));
         robot.click(button);
         Component label = robot.finder().find(new NameMatcher("LogLabel"));
