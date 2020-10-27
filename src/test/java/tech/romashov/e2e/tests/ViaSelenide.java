@@ -6,7 +6,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import tech.romashov.core.selenide.FestDriverProvider;
 
-public class ViaSelenide extends ButtonTest {
+public class ViaSelenide implements ButtonTest {
     private SelenideDriver selenide;
 
     @Override

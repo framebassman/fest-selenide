@@ -7,16 +7,17 @@ import org.fest.swing.launcher.ApplicationLauncher;
 import org.fest.swing.testing.FestSwingTestCaseTemplate;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
 import tech.romashov.App;
 import tech.romashov.ContentPaneReplace;
 
-public class AsClassicFestTest extends FestSwingTestCaseTemplate {
+public class AsClassicFestTest extends FestSwingTestCaseTemplate implements ButtonTest {
     private FrameFixture applicationFrame;
     private static EmergencyAbortListener mEmergencyAbortListener;
 
     @Before
+    @Override
     public void setUp() {
+        mEmergencyAbortListener = EmergencyAbortListener.registerInToolkit();
         setUpRobot();
         ApplicationLauncher.application( App.class ).start();
         applicationFrame = WindowFinder.findFrame( ContentPaneReplace.class ).using( robot() );
@@ -28,8 +29,8 @@ public class AsClassicFestTest extends FestSwingTestCaseTemplate {
         cleanUp();
     }
 
-    @Test
-    public void testJTextField() {
+    @Override
+    public void clickOnButton_labelShouldBeDisplayed() {
         applicationFrame.button( "TestButton" ).click();
         applicationFrame.label("LogLabel")
                 .requireEnabled()

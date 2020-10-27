@@ -11,7 +11,7 @@ import java.awt.Component;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-public class AsProduction extends ButtonTest {
+public class AsProduction implements ButtonTest {
     private Robot robot;
 
     @Override
