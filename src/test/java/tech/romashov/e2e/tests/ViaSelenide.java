@@ -1,4 +1,4 @@
-package tech.romashov.e2e;
+package tech.romashov.e2e.tests;
 
 import com.codeborne.selenide.SelenideConfig;
 import com.codeborne.selenide.SelenideDriver;

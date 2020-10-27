@@ -1,12 +1,10 @@
-package tech.romashov.e2e;
+package tech.romashov.e2e.tests;
 
-import com.codeborne.selenide.SelenideConfig;
-import com.codeborne.selenide.SelenideDriver;
 import org.fest.swing.core.BasicRobot;
 import org.fest.swing.core.NameMatcher;
 import org.fest.swing.core.Robot;
 import org.junit.Before;
-import tech.romashov.core.selenide.FestDriverProvider;
+import tech.romashov.e2e.application.AppLoader;
 
 import java.awt.Component;
 
