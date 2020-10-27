@@ -7,15 +7,16 @@ import org.fest.swing.launcher.ApplicationLauncher;
 import org.fest.swing.testing.FestSwingTestCaseTemplate;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 import tech.romashov.App;
 import tech.romashov.ContentPaneReplace;
 
-public class AsClassicFestTest extends FestSwingTestCaseTemplate implements ButtonTest {
+public class AsClassicFestTest extends FestSwingTestCaseTemplate {
     private FrameFixture applicationFrame;
     private static EmergencyAbortListener mEmergencyAbortListener;
 
     @Before
-    @Override
+//    @Override
     public void setUp() {
         mEmergencyAbortListener = EmergencyAbortListener.registerInToolkit();
         setUpRobot();
@@ -29,7 +30,7 @@ public class AsClassicFestTest extends FestSwingTestCaseTemplate implements Butt
         cleanUp();
     }
 
-    @Override
+    @Test
     public void clickOnButton_labelShouldBeDisplayed() {
         applicationFrame.button( "TestButton" ).click();
         applicationFrame.label("LogLabel")

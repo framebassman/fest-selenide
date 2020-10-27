@@ -4,6 +4,7 @@ import org.fest.swing.core.BasicRobot;
 import org.fest.swing.core.NameMatcher;
 import org.fest.swing.core.Robot;
 import org.junit.Before;
+import org.junit.Test;
 import tech.romashov.e2e.application.AppLoader;
 
 import java.awt.Component;
@@ -11,17 +12,17 @@ import java.awt.Component;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-public class AsProduction implements ButtonTest {
+public class AsProduction {
     private Robot robot;
 
-    @Override
+//    @Override
     @Before
     public void setUp() throws Throwable {
         robot = BasicRobot.robotWithCurrentAwtHierarchy();
         new AppLoader(robot);
     }
 
-    @Override
+    @Test
     public void clickOnButton_labelShouldBeDisplayed() throws Exception {
         Component button = robot.finder().find(new NameMatcher("TestButton"));
         robot.click(button);
