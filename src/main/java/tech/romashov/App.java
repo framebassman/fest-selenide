@@ -4,14 +4,28 @@
 package tech.romashov;
 
 import javax.swing.JFrame;
+import java.awt.Frame;
+import java.awt.event.WindowEvent;
 
-public class App {
+public class App implements AutoCloseable {
+    private Frame mainFrame;
+
     public String getGreeting() {
         return "Hello world.";
     }
 
     public static void main(String[] args) {
+        App app = new App();
+        app.start();
+    }
+
+    public void start() {
         JFrame.setDefaultLookAndFeelDecorated(true);
-        new ContentPaneReplace();
+        mainFrame = new ContentPaneReplace();
+    }
+
+    @Override
+    public void close() {
+        mainFrame.dispatchEvent(new WindowEvent(mainFrame, WindowEvent.WINDOW_CLOSING));
     }
 }

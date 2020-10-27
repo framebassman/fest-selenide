@@ -3,6 +3,7 @@ package tech.romashov.e2e.tests;
 import org.fest.swing.core.BasicRobot;
 import org.fest.swing.core.NameMatcher;
 import org.fest.swing.core.Robot;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -17,13 +18,20 @@ import static org.hamcrest.core.IsEqual.equalTo;
 public class AsProduction {
     private Robot robot;
     private Logger logger = LoggerFactory.getLogger(ButtonTest.class);
+    private AppLoader loader;
 
 //    @Override
     @Before
     public void setUp() throws Throwable {
-        logger.info("start AsProduction.setUp");
+        System.out.println("start AsProduction.setUp");
         robot = BasicRobot.robotWithCurrentAwtHierarchy();
-        new AppLoader(robot);
+        loader = new AppLoader(robot);
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        System.out.println("start AsProduction.tearDown");
+        loader.close();
     }
 
     @Test

@@ -12,10 +12,13 @@ import javax.swing.SwingUtilities;
 import static org.hamcrest.core.IsNot.not;
 import static org.hamcrest.core.IsNull.nullValue;
 
-public class AppLoader {
+public class AppLoader implements AutoCloseable {
+    private App app;
+
     public AppLoader(Robot robot) throws Throwable {
         Logger logger = LoggerFactory.getLogger(AppLoader.class);
-        SwingUtilities.invokeLater(() -> App.main(new String[]{""}));
+        app = new App();
+        SwingUtilities.invokeLater(() -> app.start());
         AssertWithTimeout.assertThat(
                 () -> {
                     logger.info("Check TestContentPane");
@@ -25,5 +28,10 @@ public class AppLoader {
                 4_000,
                 300
         );
+    }
+
+    @Override
+    public void close() {
+        app.close();
     }
 }

@@ -21,7 +21,7 @@ public class AsClassicFestTest extends FestSwingTestCaseTemplate {
     @Before
 //    @Override
     public void setUp() {
-        logger.info("start AsClassicFestTest.setUp");
+        System.out.println("start AsClassicFestTest.setUp");
         mEmergencyAbortListener = EmergencyAbortListener.registerInToolkit();
         setUpRobot();
         ApplicationLauncher.application( App.class ).start();
@@ -36,7 +36,7 @@ public class AsClassicFestTest extends FestSwingTestCaseTemplate {
 
     @Test
     public void clickOnButton_labelShouldBeDisplayed() {
-        logger.info("start AsClassicFestTest.clickOnButton_labelShouldBeDisplayed");
+        System.out.println("start AsClassicFestTest.clickOnButton_labelShouldBeDisplayed");
         applicationFrame.button( "TestButton" ).click();
         applicationFrame.label("LogLabel")
                 .requireEnabled()
