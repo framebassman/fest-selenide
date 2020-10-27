@@ -23,7 +23,7 @@ public class AsProduction {
 //    @Override
     @Before
     public void setUp() throws Throwable {
-        System.out.println("start AsProduction.setUp");
+        logger.info("start AsProduction.setUp");
         robot = BasicRobot.robotWithCurrentAwtHierarchy();
         loader = new AppLoader(robot);
     }
