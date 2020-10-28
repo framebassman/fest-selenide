@@ -2,27 +2,27 @@ package tech.romashov.e2e.tests;
 
 import org.junit.After;
 import org.junit.Before;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import tech.romashov.e2e.FestTestTemplate;
+import org.junit.Test;
+import tech.romashov.core.fest.FestTestTemplate;
 
 public class AsClassicFestTest extends ButtonTest {
-    private Logger logger = LoggerFactory.getLogger(ButtonTest.class);
     private FestTestTemplate festTestTemplate;
 
-    @Before
     @Override
-    public void setUp() {
+    @Before
+    public void setUp() throws Throwable {
         logger.info("start AsClassicFestTest.setUp");
         festTestTemplate = new FestTestTemplate();
     }
 
+    @Override
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() throws Throwable {
         festTestTemplate.close();
     }
 
     @Override
+    @Test
     public void clickOnButton_labelShouldBeDisplayed() {
         logger.info("start AsClassicFestTest.clickOnButton_labelShouldBeDisplayed");
         festTestTemplate.fixture().button( "TestButton" ).click();

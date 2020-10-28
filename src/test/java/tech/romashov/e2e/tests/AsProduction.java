@@ -17,10 +17,9 @@ import static org.hamcrest.core.IsEqual.equalTo;
 
 public class AsProduction extends ButtonTest {
     private Robot robot;
-    private Logger logger = LoggerFactory.getLogger(ButtonTest.class);
     private AppLoader loader;
 
-//    @Override
+    @Override
     @Before
     public void setUp() throws Throwable {
         logger.info("start AsProduction.setUp");
@@ -28,12 +27,14 @@ public class AsProduction extends ButtonTest {
         loader = new AppLoader(robot);
     }
 
+    @Override
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() throws Throwable {
         logger.info("start AsProduction.tearDown");
         loader.close();
     }
 
+    @Override
     @Test
     public void clickOnButton_labelShouldBeDisplayed() throws Exception {
         logger.info("start AsProduction.clickOnButton_labelShouldBeDisplayed");

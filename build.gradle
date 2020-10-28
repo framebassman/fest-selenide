@@ -64,5 +64,4 @@ test {
                 ", Errors: ${results.sum { it.exceptions.size() }}" +
                 ", Skipped: ${results.sum { it.skippedTestCount }}"
     }
-//    useJUnit()
 }

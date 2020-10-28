@@ -1,4 +1,4 @@
-package tech.romashov.e2e;
+package tech.romashov.core.fest;
 
 import org.fest.swing.core.EmergencyAbortListener;
 import org.fest.swing.finder.WindowFinder;
