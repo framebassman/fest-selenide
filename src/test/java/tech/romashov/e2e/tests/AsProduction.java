@@ -15,7 +15,7 @@ import java.awt.Component;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-public class AsProduction {
+public class AsProduction extends ButtonTest {
     private Robot robot;
     private Logger logger = LoggerFactory.getLogger(ButtonTest.class);
     private AppLoader loader;

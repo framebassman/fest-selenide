@@ -6,17 +6,17 @@ import org.junit.Ignore;
 import org.junit.Test;
 import tech.romashov.core.selenide.FestDriverProvider;
 
-public class ViaSelenide {
+public class ViaSelenide extends ButtonTest {
     private SelenideDriver selenide;
 
-//    @Override
+    @Override
     public void setUp() throws Throwable {
         SelenideConfig configuration = new SelenideConfig();
         configuration.browser(FestDriverProvider.class.getName());
         selenide = new SelenideDriver(configuration);
     }
 
-//    @Override
+    @Override
     @Ignore
     @Test
     public void clickOnButton_labelShouldBeDisplayed() throws Exception {
