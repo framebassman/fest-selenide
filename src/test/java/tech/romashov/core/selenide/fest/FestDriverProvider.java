@@ -1,4 +1,4 @@
-package tech.romashov.core.selenide;
+package tech.romashov.core.selenide.fest;
 
 import com.codeborne.selenide.WebDriverProvider;
 import org.openqa.selenium.WebDriver;

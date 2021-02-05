@@ -6,8 +6,6 @@ import org.fest.swing.core.Robot;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import tech.romashov.e2e.application.AppLoader;
 
 import java.awt.Component;

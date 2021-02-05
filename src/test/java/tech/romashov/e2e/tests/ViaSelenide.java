@@ -4,9 +4,8 @@ import com.codeborne.selenide.SelenideConfig;
 import com.codeborne.selenide.SelenideDriver;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
-import tech.romashov.core.selenide.FestDriverProvider;
+import tech.romashov.core.selenide.fest.FestDriverProvider;
 
 public class ViaSelenide extends ButtonTest {
     private SelenideDriver selenide;
@@ -26,10 +25,10 @@ public class ViaSelenide extends ButtonTest {
     }
 
     @Override
-    @Ignore
     @Test
     public void clickOnButton_labelShouldBeDisplayed() throws Exception {
         logger.info("this test is not ready yet");
+        selenide.open();
         throw new UnsupportedOperationException("this test is not ready yet");
     }
 }
