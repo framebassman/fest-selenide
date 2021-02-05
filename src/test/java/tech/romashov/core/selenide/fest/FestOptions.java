@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.logging.Logs;
 
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 public class FestOptions implements WebDriver.Options {
     @Override
@@ -39,7 +40,7 @@ public class FestOptions implements WebDriver.Options {
 
     @Override
     public WebDriver.Timeouts timeouts() {
-        return null;
+        return new FestTimeouts();
     }
 
     @Override
