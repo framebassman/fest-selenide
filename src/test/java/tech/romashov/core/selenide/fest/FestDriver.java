@@ -1,22 +1,31 @@
 package tech.romashov.core.selenide.fest;
 
+import org.fest.swing.core.BasicRobot;
+import org.fest.swing.core.Robot;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.awt.Component;
 import java.util.List;
 import java.util.Set;
 
 public class FestDriver implements WebDriver {
     private Options options;
+    private Robot robot;
 
     public FestDriver() {
         options = new FestOptions();
+        robot = BasicRobot.robotWithCurrentAwtHierarchy();
+    }
+
+    public Robot getRobot() {
+        return robot;
     }
 
     @Override
     public void get(String url) {
-
+        int a = 1;
     }
 
     @Override
