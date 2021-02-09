@@ -1,0 +1,56 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.apache.maven.wagon:wagon-ssh:3.4.2'
+    }
+}
+
+import org.apache.maven.wagon.repository.Repository
+import org.apache.maven.wagon.authentication.AuthenticationInfo
+import org.apache.maven.wagon.providers.ssh.jsch.ScpWagon
+import org.apache.maven.wagon.providers.ssh.knownhost.NullKnownHostProvider
+
+import java.nio.file.Path
+import java.nio.file.Paths
+
+task deploy() {
+    dependsOn installDist
+    doLast {
+        deployToCash("$buildDir/install", "IP")
+    }
+}
+
+void deployToCash(String toDeploy, String host) {
+    logger.quiet("Start deploy to host ${host}")
+    Path publishPath = Paths.get("/home/tc/storage")
+    def rep = new Repository(toDeploy, "scp://${host}${publishPath}")
+
+    def auth = new AuthenticationInfo()
+    auth.userName = "USERNAME"
+    auth.password = "PASSWORD"
+
+    def wagon = new ScpWagon()
+    wagon.setKnownHostsProvider(new NullKnownHostProvider())
+    wagon.getKnownHostsProvider().setHostKeyChecking("no")
+    wagon.connect(rep, auth)
+
+    logger.quiet("Starting deployment: host=$host")
+    file(toDeploy).eachFile {
+        if (it.directory) {
+            logger.quiet("Copying directory $it.name")
+            wagon.putDirectory(it, it.name)
+        } else {
+            logger.quiet("Copying file $it.name")
+            wagon.put(it, it.name)
+        }
+    }
+
+    logger.quiet("Adding executable permissions for **/fest-selenide")
+    wagon.executeCommand("chmod +x -R **/fest-selenide")
+
+    logger.quiet("Start application")
+    wagon.executeCommand("export DISPLAY=:0 && $publishPath/fest-selenide/bin/fest-selenide &")
+    logger.quiet("done!")
+}
