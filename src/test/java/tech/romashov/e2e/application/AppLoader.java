@@ -5,6 +5,7 @@ import org.fest.swing.core.Robot;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import tech.romashov.App;
+import tech.romashov.configuration.Environment;
 import tech.romashov.core.assertions.AssertWithTimeout;
 
 import javax.swing.SwingUtilities;
@@ -18,7 +19,7 @@ public class AppLoader implements AutoCloseable {
     public AppLoader(Robot robot) throws Throwable {
         Logger logger = LoggerFactory.getLogger(AppLoader.class);
         app = new App();
-        SwingUtilities.invokeLater(() -> app.start());
+        SwingUtilities.invokeLater(() -> app.start(Environment.Test));
         AssertWithTimeout.assertThat(
                 () -> {
                     logger.info("Check TestContentPane");

@@ -30,6 +30,7 @@ public class AsProduction extends ButtonTest {
     public void tearDown() throws Throwable {
         logger.info("start AsProduction.tearDown");
         loader.close();
+        robot.cleanUp();
     }
 
     @Override
