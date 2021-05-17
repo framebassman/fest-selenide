@@ -1,0 +1,12 @@
+language: java
+jdk:
+  - oraclejdk8
+dist: xenial
+services:
+  - xvfb
+
+script:
+  - printenv
+
+notifications:
+  email: false
