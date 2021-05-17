@@ -12,7 +12,7 @@ cache:
     - $HOME/.gradle/caches/
 install:
   - gradle --version
-  - gradle assemble
+  - gradle assemble --stacktrace
 script:
   - printenv
 
