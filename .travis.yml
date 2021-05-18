@@ -11,8 +11,8 @@ cache:
   directories:
     - $HOME/.gradle/caches/
 install:
-  - gradle --version
-  - gradle assemble --info
+  - ./gradlew --version
+  - ./gradlew assemble --info
 script:
   - printenv
 
