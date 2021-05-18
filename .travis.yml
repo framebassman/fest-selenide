@@ -14,7 +14,7 @@ install:
   - ./gradlew --version
   - ./gradlew assemble --info
 script:
-  - printenv
+  - xvfb-run --server-args="-screen 0 1024x768x24" ./gradlew test
 
 notifications:
   email: false
