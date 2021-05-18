@@ -1,7 +1,7 @@
 language: java
 jdk:
   - oraclejdk8
-dist: focal
+dist: trusty
 services:
   - xvfb
 before_cache:
