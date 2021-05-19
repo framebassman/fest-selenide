@@ -2,4 +2,9 @@ test {
     dependsOn cleanTest
     // show stdout from tests
     onOutput { dest, event -> print event.message }
+    outputs.upToDateWhen { false }
+    testLogging {
+        events "passed", "skipped", "failed"
+        exceptionFormat "full"
+    }
 }
