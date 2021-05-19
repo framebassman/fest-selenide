@@ -1,9 +1,12 @@
 package tech.romashov.e2e.tests;
 
+import com.automation.remarks.junit.VideoRule;
+import com.automation.remarks.video.annotations.Video;
 import org.fest.swing.core.NameMatcher;
 import org.fest.swing.core.Robot;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import tech.romashov.e2e.application.AppLoader;
 
@@ -15,6 +18,9 @@ import static org.hamcrest.core.IsEqual.equalTo;
 public class AsProduction extends ButtonTest {
     private AppLoader loader;
     private Robot robot;
+
+    @Rule
+    public VideoRule videoRule = new VideoRule();
 
     @Override
     @Before
@@ -34,6 +40,7 @@ public class AsProduction extends ButtonTest {
 
     @Override
     @Test
+    @Video
     public void clickOnButton_labelShouldBeDisplayed() throws Exception {
         logger.info("start AsProduction.clickOnButton_labelShouldBeDisplayed");
         Component button = robot.finder().find(new NameMatcher("TestButton"));

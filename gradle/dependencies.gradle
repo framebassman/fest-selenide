@@ -14,5 +14,6 @@ allprojects {
         testImplementation 'org.slf4j:slf4j-api:2.0.0-alpha1'
         testImplementation 'org.slf4j:slf4j-log4j12:2.0.0-alpha1'
         testImplementation 'log4j:log4j:1.2.17'
+        testImplementation group: 'com.automation-remarks', name: 'video-recorder-junit', version: '2.0'
     }
 }
