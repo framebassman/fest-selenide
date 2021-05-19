@@ -2,6 +2,7 @@ package tech.romashov.e2e.application;
 
 import org.fest.swing.core.NameMatcher;
 import org.fest.swing.core.Robot;
+import org.fest.swing.exception.ComponentLookupException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import tech.romashov.App;
@@ -22,8 +23,14 @@ public class AppLoader implements AutoCloseable {
         SwingUtilities.invokeLater(() -> app.start(Environment.Test));
         AssertWithTimeout.assertThat(
                 () -> {
-                    logger.info("Check TestContentPane");
-                    return robot.finder().find(new NameMatcher("TestContentPane"));
+                    try {
+                        logger.info("Check TestContentPane");
+                        return robot.finder().find(new NameMatcher("TestContentPane"));
+                    } catch (ComponentLookupException exception) {
+                        logger.info("Application is not ready yet");
+                        logger.info(exception.getMessage(), exception);
+                        return null;
+                    }
                 },
                 not(nullValue()),
                 4_000,
