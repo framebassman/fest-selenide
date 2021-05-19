@@ -1,8 +1,7 @@
 package tech.romashov.e2e.application;
 
-import org.fest.swing.core.NameMatcher;
+import org.fest.swing.core.BasicRobot;
 import org.fest.swing.core.Robot;
-import org.fest.swing.core.matcher.FrameMatcher;
 import org.fest.swing.exception.ComponentLookupException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,8 +17,9 @@ import static org.hamcrest.core.IsNull.nullValue;
 
 public class AppLoader implements AutoCloseable {
     private App app;
+    private Robot robot;
 
-    public AppLoader(Robot robot) throws Throwable {
+    public AppLoader() throws Throwable {
         Logger logger = LoggerFactory.getLogger(AppLoader.class);
         app = new App();
         SwingUtilities.invokeLater(() -> app.start(Environment.Test));
@@ -27,6 +27,7 @@ public class AppLoader implements AutoCloseable {
                 () -> {
                     try {
                         logger.info("Check TestContentPane");
+                        robot = BasicRobot.robotWithCurrentAwtHierarchy();
                         return robot.finder().find(withName("TestContentPane").andTitle("TestContentPaneTitle").andShowing());
                     } catch (ComponentLookupException exception) {
                         logger.info("Application is not ready yet");
@@ -43,5 +44,9 @@ public class AppLoader implements AutoCloseable {
     @Override
     public void close() {
         app.close();
+    }
+
+    public Robot getRobot() {
+        return robot;
     }
 }

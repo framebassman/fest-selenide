@@ -14,15 +14,15 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
 
 public class AsProduction extends ButtonTest {
-    private Robot robot;
     private AppLoader loader;
+    private Robot robot;
 
     @Override
     @Before
     public void setUp() throws Throwable {
         logger.info("start AsProduction.setUp");
-        robot = BasicRobot.robotWithCurrentAwtHierarchy();
-        loader = new AppLoader(robot);
+        loader = new AppLoader();
+        robot = loader.getRobot();
     }
 
     @Override
