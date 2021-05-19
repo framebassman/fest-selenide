@@ -7,6 +7,7 @@ import org.fest.swing.launcher.ApplicationLauncher;
 import org.fest.swing.testing.FestSwingTestCaseTemplate;
 import tech.romashov.App;
 import tech.romashov.ContentPaneReplace;
+import tech.romashov.configuration.Environment;
 
 public class FestTestTemplate extends FestSwingTestCaseTemplate implements AutoCloseable {
     private FrameFixture applicationFrame;
@@ -15,7 +16,7 @@ public class FestTestTemplate extends FestSwingTestCaseTemplate implements AutoC
     public FestTestTemplate() {
         mEmergencyAbortListener = EmergencyAbortListener.registerInToolkit();
         setUpRobot();
-        ApplicationLauncher.application( App.class ).start();
+        ApplicationLauncher.application( App.class ).withArgs(Environment.Test.toString()).start();
         applicationFrame = WindowFinder.findFrame( ContentPaneReplace.class ).using( robot() );
     }
 

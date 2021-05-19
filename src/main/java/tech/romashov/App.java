@@ -21,7 +21,7 @@ public class App implements AutoCloseable {
 
     public static void main(String[] args) {
         App app = new App();
-        app.start(Environment.Production);
+        app.start(app.parseEnvironment(args, Environment.Production));
     }
 
     public void start(Environment environment) {
@@ -34,5 +34,13 @@ public class App implements AutoCloseable {
     public void close() {
         logger.info("Close application");
         mainFrame.dispatchEvent(new WindowEvent(mainFrame, WindowEvent.WINDOW_CLOSING));
+    }
+
+    protected Environment parseEnvironment(String[] args, Environment defaultEnvironment) {
+        try {
+            return Environment.valueOf(args[0]);
+        } catch (Exception e) {
+            return defaultEnvironment;
+        }
     }
 }
