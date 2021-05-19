@@ -22,6 +22,7 @@ public class FestTestTemplate extends FestSwingTestCaseTemplate implements AutoC
 
     @Override
     public void close() throws Exception {
+        applicationFrame.close();
         mEmergencyAbortListener.unregister();
         cleanUp();
     }
