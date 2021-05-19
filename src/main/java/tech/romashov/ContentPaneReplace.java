@@ -25,6 +25,7 @@ public class ContentPaneReplace extends JFrame {
 
     private void initFrame() {
         this.setName("TestContentPane");
+        this.setTitle("TestContentPaneTitle");
         if (environment == Environment.Development || environment == Environment.Production) {
             setDefaultCloseOperation(EXIT_ON_CLOSE);
         }
