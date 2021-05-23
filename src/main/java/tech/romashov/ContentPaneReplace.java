@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class ContentPaneReplace extends JFrame {
     private static final long serialVersionUID = 1L;
@@ -25,6 +26,10 @@ public class ContentPaneReplace extends JFrame {
 
     private void initFrame() {
         this.setName("TestContentPane");
+        this.setTitle("TestContentPaneTitle");
+        int x = ThreadLocalRandom.current().nextInt(0, 300 + 1);
+        int y = ThreadLocalRandom.current().nextInt(0, 300 + 1);
+        this.setLocation(x, y);
         if (environment == Environment.Development || environment == Environment.Production) {
             setDefaultCloseOperation(EXIT_ON_CLOSE);
         }

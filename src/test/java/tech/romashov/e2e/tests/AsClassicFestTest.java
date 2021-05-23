@@ -18,7 +18,9 @@ public class AsClassicFestTest extends ButtonTest {
     @Override
     @After
     public void tearDown() throws Throwable {
+        logger.info("start AsClassicFestTest.tearDown");
         festTestTemplate.close();
+        logger.info("finish AsClassicFestTest.tearDown");
     }
 
     @Override
