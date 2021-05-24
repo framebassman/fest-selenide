@@ -3,7 +3,12 @@
 name: CI
 
 # Controls when the action will run. 
-on: push
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
+  push:
+    branches:
+      - ci/publish_artifacts-1
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
