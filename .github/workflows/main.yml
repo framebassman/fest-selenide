@@ -39,4 +39,8 @@ jobs:
       with:
         name: videos
         path: ./video
+    - uses: actions/upload-artifact@v2
+      with:
+        name: root.log
+        path: ./logs/root.log
 
