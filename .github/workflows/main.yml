@@ -41,6 +41,6 @@ jobs:
         path: ./video
     - uses: actions/upload-artifact@v2
       with:
-        name: root.log
-        path: ./logs/root.log
+        name: tests.log
+        path: ./logs/tests.log
 
