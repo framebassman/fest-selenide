@@ -1,4 +1,4 @@
-package tech.romashov.core.selenide;
+package tech.romashov.core.selenide.marathon;
 
 import com.codeborne.selenide.WebDriverProvider;
 import net.sourceforge.marathon.javadriver.JavaDriver;
