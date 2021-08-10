@@ -28,12 +28,14 @@ public class AsProduction extends ButtonTest {
         logger.info("start AsProduction.setUp");
         loader = new AppLoader();
         robot = loader.getRobot();
+        Thread.sleep(3000);
     }
 
     @Override
     @After
     public void tearDown() throws Throwable {
         logger.info("start AsProduction.tearDown");
+        Thread.sleep(3000);
         loader.close();
         robot.cleanUp();
     }
@@ -42,12 +44,10 @@ public class AsProduction extends ButtonTest {
     @Test
     @Video
     public void clickOnButton_labelShouldBeDisplayed() throws Exception {
-        Thread.sleep(3000);
         logger.info("start AsProduction.clickOnButton_labelShouldBeDisplayed");
         Component button = robot.finder().find(new NameMatcher("TestButton"));
         robot.click(button);
         Component label = robot.finder().find(new NameMatcher("LogLabel"));
         assertThat(label.isVisible(), equalTo(true));
-        Thread.sleep(3000);
     }
 }

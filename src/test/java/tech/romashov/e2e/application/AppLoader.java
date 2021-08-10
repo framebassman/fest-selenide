@@ -49,4 +49,8 @@ public class AppLoader implements AutoCloseable {
     public Robot getRobot() {
         return robot;
     }
+
+    public String getFrameSize() {
+        return String.format("%.0fx%.0f", app.getSize().getWidth(), app.getSize().getHeight());
+    }
 }

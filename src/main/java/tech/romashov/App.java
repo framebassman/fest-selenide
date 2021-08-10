@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import tech.romashov.configuration.Environment;
 
 import javax.swing.JFrame;
+import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.event.WindowEvent;
 
@@ -42,5 +43,9 @@ public class App implements AutoCloseable {
         } catch (Exception e) {
             return defaultEnvironment;
         }
+    }
+
+    public Dimension getSize() {
+        return mainFrame.getSize();
     }
 }
