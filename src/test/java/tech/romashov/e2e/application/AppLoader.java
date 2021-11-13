@@ -26,9 +26,9 @@ public class AppLoader implements AutoCloseable {
         AssertWithTimeout.assertThat(
                 () -> {
                     try {
-                        logger.info("Check TestContentPane");
+                        logger.info("Check MainFrame");
                         robot = BasicRobot.robotWithCurrentAwtHierarchy();
-                        return robot.finder().find(withName("TestContentPane").andTitle("TestContentPaneTitle").andShowing());
+                        return robot.finder().find(withName("MainFrame").andTitle("Title").andShowing());
                     } catch (ComponentLookupException exception) {
                         logger.info("Application is not ready yet");
                         logger.info(exception.getMessage(), exception);

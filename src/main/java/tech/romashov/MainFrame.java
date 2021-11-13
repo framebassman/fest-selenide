@@ -12,21 +12,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class ContentPaneReplace extends JFrame {
+public class MainFrame extends JFrame {
     private static final long serialVersionUID = 1L;
-    private Logger logger = LoggerFactory.getLogger(ContentPaneReplace.class);
+    private Logger logger = LoggerFactory.getLogger(MainFrame.class);
     private Environment environment;
 
-    public ContentPaneReplace(Environment environment) {
-        super("TestContentPane");
+    public MainFrame(Environment environment) {
+        super("Title");
         logger.info("Current environment: {}", environment);
         this.environment = environment;
         initFrame();
     }
 
     private void initFrame() {
-        this.setName("TestContentPane");
-        this.setTitle("TestContentPaneTitle");
+        this.setName("MainFrame");
         int x = ThreadLocalRandom.current().nextInt(0, 300 + 1);
         int y = ThreadLocalRandom.current().nextInt(0, 300 + 1);
         this.setLocation(x, y);
