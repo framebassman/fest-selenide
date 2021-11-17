@@ -14,14 +14,14 @@ public class MainFrame extends JFrame {
     private Logger logger = LoggerFactory.getLogger(MainFrame.class);
     private Environment environment;
 
-    public MainFrame(Environment environment) {
+    public MainFrame(Environment environment, Server server) {
         super("Title");
         logger.info("Current environment: {}", environment);
         this.environment = environment;
-        initFrame();
+        initFrame(server.url());
     }
 
-    private void initFrame() {
+    private void initFrame(String serverUrl) {
         this.setName("MainFrame");
         this.setLocation(
                 ThreadLocalRandom.current().nextInt(0, 300 + 1),
@@ -30,7 +30,7 @@ public class MainFrame extends JFrame {
         if (environment == Environment.Development || environment == Environment.Production) {
             setDefaultCloseOperation(EXIT_ON_CLOSE);
         }
-        JourneyBrowserView browser = new JourneyBrowserView("https://google.com");
+        JourneyBrowserView browser = new JourneyBrowserView(serverUrl);
         getContentPane().add(browser, BorderLayout.CENTER);
         setVisible(true);
         setSize(200, 100);

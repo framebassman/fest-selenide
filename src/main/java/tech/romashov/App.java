@@ -27,8 +27,10 @@ public class App implements AutoCloseable {
 
     public void start(Environment environment) {
         logger.info("Start application");
+        Server server = new Server();
+        server.run();
         JFrame.setDefaultLookAndFeelDecorated(true);
-        mainFrame = new MainFrame(environment);
+        mainFrame = new MainFrame(environment, server);
     }
 
     @Override
